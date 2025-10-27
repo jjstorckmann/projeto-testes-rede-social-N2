@@ -13,8 +13,5 @@
   ],
   "photos": [
     { "id": 1, "albumId": 1, "url": "https://example.com/pic1.jpg", "caption": "Praia" }
-  ],
-  "todos": [
-    { "id": 1, "userId": 1, "task": "Postar foto nova", "completed": false }
   ]
 }
