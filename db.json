@@ -1,32 +1,20 @@
 {
   "users": [
-    { "id": 1, "name": "Alice", "email": "alice@email.com" },
-    { "id": 2, "name": "Bruno", "email": "bruno@email.com" },
-    { "id": 3, "name": "Clara", "email": "clara@email.com" }
+    { "id": 1, "name": "Alice", "email": "alice@email.com" }
   ],
   "posts": [
-    { "id": 1, "userId": 1, "title": "Primeiro post", "body": "Olá mundo!" },
-    { "id": 2, "userId": 2, "title": "Olá!", "body": "Curtindo a plataforma." },
-    { "id": 3, "userId": 3, "title": "Dica de estudo", "body": "Estude programação diariamente." }
+    { "id": 1, "userId": 1, "title": "Primeiro post", "body": "Olá mundo!" }
   ],
   "comments": [
-    { "id": 1, "postId": 1, "userId": 2, "body": "Bem-vinda, Alice!" },
-    { "id": 2, "postId": 2, "userId": 3, "body": "Seja bem-vindo, Bruno!" },
-    { "id": 3, "postId": 1, "userId": 3, "body": "Ótimo post!" }
+    { "id": 1, "postId": 1, "userId": 2, "body": "Bem-vinda, Alice!" }
   ],
   "albums": [
-    { "id": 1, "userId": 1, "title": "Minhas férias" },
-    { "id": 2, "userId": 2, "title": "Fotos da equipe" },
-    { "id": 3, "userId": 3, "title": "Coleção de memes" }
+    { "id": 1, "userId": 1, "title": "Minhas férias" }
   ],
-  "pics": [
-    { "id": 1, "albumId": 1, "url": "https://example.com/pic1.jpg", "caption": "Praia" },
-    { "id": 2, "albumId": 2, "url": "https://example.com/pic2.jpg", "caption": "Equipe reunida" },
-    { "id": 3, "albumId": 3, "url": "https://example.com/pic3.jpg", "caption": "Um meme engraçado" }
+  "photos": [
+    { "id": 1, "albumId": 1, "url": "https://example.com/pic1.jpg", "caption": "Praia" }
   ],
   "todos": [
-    { "id": 1, "userId": 1, "task": "Postar foto nova", "completed": false },
-    { "id": 2, "userId": 2, "task": "Comentar em posts", "completed": true },
-    { "id": 3, "userId": 3, "task": "Criar álbum", "completed": false }
+    { "id": 1, "userId": 1, "task": "Postar foto nova", "completed": false }
   ]
 }
