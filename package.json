@@ -9,7 +9,9 @@
     "ui-test": "playwright test",
     "load-test": "artillery run test/load-tests/scenario.yml",
     "load-test:50": "artillery run test/load-tests/scenario-50.yml",
-    "load-test:100": "artillery run test/load-tests/scenario-100.yml"
+    "load-test:100": "artillery run test/load-tests/scenario-100.yml",
+    "load-test:100:json": "artillery run test/load-tests/scenario-100.yml -o report-100.json",
+    "load-test:100:html": "artillery report report-100.json -o report-100.html"
   },
   "keywords": [],
   "author": "",
