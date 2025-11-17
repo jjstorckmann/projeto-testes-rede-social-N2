@@ -1,0 +1,18 @@
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 30
+      arrivalRate: 100 # 100 usuários por segundo
+  defaults:
+    headers:
+      Content-Type: "application/json"
+
+scenarios:
+  - name: "Carga pesada - posts, users e comments"
+    flow:
+      - get:
+          url: "/posts"
+      - get:
+          url: "/users"
+      - get:
+          url: "/comments"

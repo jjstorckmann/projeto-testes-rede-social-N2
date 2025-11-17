@@ -5,16 +5,24 @@
   "type": "commonjs",
   "scripts": {
     "test": "mocha test/**/*.test.js --recursive --timeout 10000",
-    "test:watch": "mocha --watch 'test/**/*.test.js'"
+    "test:watch": "mocha --watch 'test/**/*.test.js'",
+    "ui-test": "playwright test",
+    "load-test": "artillery run test/load-tests/scenario.yml",
+    "load-test:50": "artillery run test/load-tests/scenario-50.yml",
+    "load-test:100": "artillery run test/load-tests/scenario-100.yml"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "axios": "^1.12.2"
+    "axios": "^1.12.2",
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "artillery": "^2.0.26",
     "chai": "^4.3.10",
     "chai-http": "^4.4.0",
     "mocha": "^11.7.3",

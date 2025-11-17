@@ -1,0 +1,16 @@
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 30
+      arrivalRate: 50 # 50 usuários por segundo aproximados
+  defaults:
+    headers:
+      Content-Type: "application/json"
+
+scenarios:
+  - name: "Carga em /posts e /users - 50 usuários"
+    flow:
+      - get:
+          url: "/posts"
+      - get:
+          url: "/users"

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Álbuns</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <h1>Lista de Álbuns</h1>
+
+    <div id="loader" class="loader">Carregando álbuns...</div>
+
+    <table id="albumsTable" class="table" style="display:none;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>UserID</th>
+                <th>Título</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        async function carregarAlbuns() {
+            try {
+                const res = await fetch("http://localhost:3000/albums");
+                const albums = await res.json();
+                const tbody = document.querySelector("#albumsTable tbody");
+
+                albums.forEach(a => {
+                    const tr = document.createElement("tr");
+                    tr.innerHTML = `
+            <td>${a.id}</td>
+            <td>${a.userId}</td>
+            <td>${a.title}</td>
+          `;
+                    tbody.appendChild(tr);
+                });
+
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("albumsTable").style.display = "table";
+            } catch (err) {
+                document.getElementById("loader").innerText = "Erro ao carregar álbuns.";
+            }
+        }
+
+        carregarAlbuns();
+    </script>
+</body>
+
+</html>

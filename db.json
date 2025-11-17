@@ -1,17 +1,23 @@
 {
-  "users": [
-    { "id": 1, "name": "Alice", "email": "alice@email.com" }
-  ],
+  "users": [{ "id": 1, "name": "Diego", "email": "Diego@email.com" }],
   "posts": [
-    { "id": 1, "userId": 1, "title": "Primeiro post", "body": "Olá mundo!" }
+    {
+      "id": 1,
+      "userId": 1,
+      "title": "Primeiro post",
+      "body": "BEm vindo ao teste de software!"
+    }
   ],
   "comments": [
-    { "id": 1, "postId": 1, "userId": 2, "body": "Bem-vinda, Alice!" }
+    { "id": 1, "postId": 1, "userId": 2, "body": "Bem-vindo, Diego!" }
   ],
-  "albums": [
-    { "id": 1, "userId": 1, "title": "Minhas férias" }
-  ],
+  "albums": [{ "id": 1, "userId": 1, "title": "Minhas férias" }],
   "photos": [
-    { "id": 1, "albumId": 1, "url": "https://example.com/pic1.jpg", "caption": "Praia" }
+    {
+      "id": 1,
+      "albumId": 1,
+      "url": "https://example.com/pic1.jpg",
+      "caption": "Praia"
+    }
   ]
 }

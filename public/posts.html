@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Posts</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Lista de Posts</h1>
+
+    <div id="loader" class="loader">Carregando posts...</div>
+
+    <table id="postsTable" class="table" style="display:none;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>UserID</th>
+                <th>Título</th>
+                <th>Conteúdo</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        async function carregarPosts() {
+            try {
+                const res = await fetch("http://localhost:3000/posts");
+                const posts = await res.json();
+
+                const tbody = document.querySelector("#postsTable tbody");
+
+                posts.forEach(p => {
+                    const tr = document.createElement("tr");
+                    tr.innerHTML = `
+                        <td>${p.id}</td>
+                        <td>${p.userId}</td>
+                        <td>${p.title}</td>
+                        <td>${p.body}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("postsTable").style.display = "table";
+
+            } catch (err) {
+                document.getElementById("loader").innerText = "Erro ao carregar posts.";
+            }
+        }
+
+        carregarPosts();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Comentários</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <h1>Lista de Comentários</h1>
+
+    <div id="loader" class="loader">Carregando comentários...</div>
+
+    <table id="commentsTable" class="table" style="display:none;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>PostID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Comentário</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        async function carregarComentarios() {
+            try {
+                const res = await fetch("http://localhost:3000/comments");
+                const comments = await res.json();
+                const tbody = document.querySelector("#commentsTable tbody");
+
+                comments.forEach(c => {
+                    const tr = document.createElement("tr");
+                    tr.innerHTML = `
+            <td>${c.id}</td>
+            <td>${c.postId}</td>
+            <td>${c.name}</td>
+            <td>${c.email}</td>
+            <td>${c.body}</td>
+          `;
+                    tbody.appendChild(tr);
+                });
+
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("commentsTable").style.display = "table";
+            } catch (err) {
+                document.getElementById("loader").innerText = "Erro ao carregar comentários.";
+            }
+        }
+
+        carregarComentarios();
+    </script>
+</body>
+
+</html>
