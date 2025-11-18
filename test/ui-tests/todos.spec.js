@@ -1,11 +1,12 @@
 const { test, expect } = require("@playwright/test");
-
+// 1. teste o título da página
 test("todos.html deve exibir o título correto", async ({ page }) => {
   await page.goto("/todos.html");
   await expect(page.locator("h1")).toHaveText("Lista de Tarefas");
 });
 
-test("todos.html deve carregar tarefas e mostrar valores Sim/Não em Concluída", async ({
+// 2. teste a tabela com pelo menos uma tarefa
+test("todos.html deve carregar tasks e mostrar valores sim ou nao", async ({
   page,
 }) => {
   await page.goto("/todos.html");

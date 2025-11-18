@@ -1,14 +1,15 @@
+# Teste de Software/n2-analytics-social/test/load-tests/scenario.yml
+
+## carga moderada
+
 config:
   target: "http://localhost:3000"
   phases:
     - duration: 30
-      arrivalRate: 100 # 100 usuários por segundo
-  defaults:
-    headers:
-      Content-Type: "application/json"
+      arrivalRate: 50
 
 scenarios:
-  - name: "Carga pesada - posts, users e comments"
+  - name: "Cenário 50 usuários"
     flow:
       - get:
           url: "/posts"

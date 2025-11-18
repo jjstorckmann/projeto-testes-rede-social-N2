@@ -1,12 +1,14 @@
 // ui-tests/users.spec.js
 const { test, expect } = require("@playwright/test");
 
+//1 titulo correto
 test("users.html deve exibir o título correto", async ({ page }) => {
   await page.goto("/users.html");
   await expect(page.locator("h1")).toHaveText("Lista de Usuários");
 });
 
-test("users.html deve carregar a tabela de usuários com pelo menos uma linha", async ({
+//2 tabela com pelo menos um usuário
+test("users.html deve carregar a tabela de usuários com pelo menos um usuario", async ({
   page,
 }) => {
   await page.goto("/users.html");

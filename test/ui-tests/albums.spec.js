@@ -1,13 +1,13 @@
 const { test, expect } = require("@playwright/test");
 
-test("albums.html deve exibir o título correto", async ({ page }) => {
+// 1. teste o título da página
+test("albums.html exibe o título correto", async ({ page }) => {
   await page.goto("/albums.html");
   await expect(page.locator("h1")).toHaveText("Lista de Álbuns");
 });
 
-test("albums.html deve carregar álbuns com pelo menos uma linha", async ({
-  page,
-}) => {
+// 2. teste a tabela com pelo menos um álbum
+test("albums.html deve carregar albuns com pelo menos um", async ({ page }) => {
   await page.goto("/albums.html");
   const tabela = page.locator("#albumsTable");
   await expect(tabela).toBeVisible();

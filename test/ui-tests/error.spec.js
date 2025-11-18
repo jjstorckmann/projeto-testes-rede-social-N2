@@ -1,5 +1,6 @@
 const { test, expect } = require("@playwright/test");
 
+// 1. teste rota inexistente retorna erro JSON
 test("rota inexistente deve retornar erro JSON", async ({ page }) => {
   const res = await page.goto("/rota-inexistente");
   expect(res.status()).toBe(404);
@@ -8,6 +9,7 @@ test("rota inexistente deve retornar erro JSON", async ({ page }) => {
   expect(bodyText).toContain("Rota não encontrada");
 });
 
+// 2. teste que um elemento inexistente não está presente na página
 test("posts.html não deve conter elemento inexistente #botaoInutil", async ({
   page,
 }) => {

@@ -1,0 +1,19 @@
+# Teste de Software/n2-analytics-social/test/load-tests/scenario.yml
+
+## carga leve para endpoint /posts
+
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 30
+      arrivalRate: 20
+
+scenarios:
+  - name: "Cenário 20 usuários - navegação básica"
+    flow:
+      - get:
+          url: "/posts"
+      - get:
+          url: "/users"
+      - get:
+          url: "/comments"
