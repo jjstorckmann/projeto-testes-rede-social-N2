@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Álbuns</title>
+    <title>Lista de Álbuns</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -23,32 +23,7 @@
         <tbody></tbody>
     </table>
 
-    <script>
-        async function carregarAlbuns() {
-            try {
-                const res = await fetch("http://localhost:3000/albums");
-                const albums = await res.json();
-                const tbody = document.querySelector("#albumsTable tbody");
-
-                albums.forEach(a => {
-                    const tr = document.createElement("tr");
-                    tr.innerHTML = `
-            <td>${a.id}</td>
-            <td>${a.userId}</td>
-            <td>${a.title}</td>
-          `;
-                    tbody.appendChild(tr);
-                });
-
-                document.getElementById("loader").style.display = "none";
-                document.getElementById("albumsTable").style.display = "table";
-            } catch (err) {
-                document.getElementById("loader").innerText = "Erro ao carregar álbuns.";
-            }
-        }
-
-        carregarAlbuns();
-    </script>
+    <script src="js/albums.js"></script>
 </body>
 
 </html>

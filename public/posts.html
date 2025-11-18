@@ -25,36 +25,7 @@
         <tbody></tbody>
     </table>
 
-    <script>
-        async function carregarPosts() {
-            try {
-                const res = await fetch("http://localhost:3000/posts");
-                const posts = await res.json();
-
-                const tbody = document.querySelector("#postsTable tbody");
-
-                posts.forEach(p => {
-                    const tr = document.createElement("tr");
-                    tr.innerHTML = `
-                        <td>${p.id}</td>
-                        <td>${p.userId}</td>
-                        <td>${p.title}</td>
-                        <td>${p.body}</td>
-                    `;
-                    tbody.appendChild(tr);
-                });
-
-                document.getElementById("loader").style.display = "none";
-                document.getElementById("postsTable").style.display = "table";
-
-            } catch (err) {
-                document.getElementById("loader").innerText = "Erro ao carregar posts.";
-            }
-        }
-
-        carregarPosts();
-    </script>
-
+    <script src="js/posts.js"></script>
 </body>
 
 </html>

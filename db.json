@@ -1,5 +1,6 @@
 {
-  "users": [{ "id": 1, "name": "Diego", "email": "Diego@email.com" }],
+  "users": [{ "id": 1, "name": "Diego", "email": "Diego@catolicasc.com" }],
+
   "posts": [
     {
       "id": 1,
@@ -8,10 +9,28 @@
       "body": "BEm vindo ao teste de software!"
     }
   ],
+
   "comments": [
     { "id": 1, "postId": 1, "userId": 2, "body": "Bem-vindo, Diego!" }
   ],
+
+  "todos": [
+    {
+      "id": 1,
+      "userId": 1,
+      "title": "Estudar testes de software",
+      "completed": true
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "title": "Revisar relatório da N3",
+      "completed": false
+    }
+  ],
+
   "albums": [{ "id": 1, "userId": 1, "title": "Minhas férias" }],
+
   "photos": [
     {
       "id": 1,

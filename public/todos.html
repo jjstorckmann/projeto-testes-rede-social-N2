@@ -24,33 +24,7 @@
         <tbody></tbody>
     </table>
 
-    <script>
-        async function carregarTodos() {
-            try {
-                const res = await fetch("http://localhost:3000/todos");
-                const todos = await res.json();
-                const tbody = document.querySelector("#todosTable tbody");
-
-                todos.forEach(t => {
-                    const tr = document.createElement("tr");
-                    tr.innerHTML = `
-            <td>${t.id}</td>
-            <td>${t.userId}</td>
-            <td>${t.title}</td>
-            <td>${t.completed ? "Sim" : "Não"}</td>
-          `;
-                    tbody.appendChild(tr);
-                });
-
-                document.getElementById("loader").style.display = "none";
-                document.getElementById("todosTable").style.display = "table";
-            } catch (err) {
-                document.getElementById("loader").innerText = "Erro ao carregar tarefas.";
-            }
-        }
-
-        carregarTodos();
-    </script>
+    <script src="js/todos.js"></script>
 </body>
 
 </html>
