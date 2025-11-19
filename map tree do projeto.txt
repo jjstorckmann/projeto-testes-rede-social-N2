@@ -1,0 +1,71 @@
+.
+├── N3.txt
+├── README.md
+├── db.json
+├── generateReport.js
+├── package-lock.json
+├── package.json
+├── playwright.config.js
+├── public
+│   ├── albums.html
+│   ├── comments.html
+│   ├── js
+│   │   ├── albums.js
+│   │   ├── comments.js
+│   │   ├── posts.js
+│   │   ├── todos.js
+│   │   └── users.js
+│   ├── posts.html
+│   ├── style.css
+│   ├── todos.html
+│   └── users.html
+├── public.zip
+├── report-100.json
+├── server.js
+├── src
+│   ├── analytics
+│   │   └── analytics.js
+│   ├── dependecies
+│   │   ├── builddeps.js
+│   │   ├── jsonplaceholder.js
+│   │   └── myjsonserver.js
+│   ├── http
+│   │   └── client.js
+│   └── services
+│       ├── albums.js
+│       ├── comments.js
+│       ├── pics.js
+│       ├── posts.js
+│       ├── todos.js
+│       └── users.js
+├── test
+│   ├── api
+│   │   ├── analytics.jsonplaceholder.api.test.js
+│   │   ├── jsonplaceholder.api.test.js
+│   │   └── myjsonserver.integration.test.js
+│   ├── integration
+│   │   └── analytics.myjsonserver.integration.test.js
+│   ├── load-tests
+│   │   ├── carga-100.yml
+│   │   ├── carga-20.yml
+│   │   └── carga-50.yml
+│   ├── mocks
+│   │   └── readme.md
+│   ├── ui-tests
+│   │   ├── albums.spec.js
+│   │   ├── comments.spec.js
+│   │   ├── error.spec.js
+│   │   ├── posts.spec.js
+│   │   ├── todos.spec.js
+│   │   └── users.spec.js
+│   └── unit
+│       ├── albums.unit.test.js
+│       ├── analytics.unit.test.js
+│       ├── comments.unit.test.js
+│       ├── pics.unit.test.js
+│       ├── posts.unit.test.js
+│       ├── todos.unit.test.js
+│       └── users.unit.test.js
+└── test-results
+
+16 directories, 53 files

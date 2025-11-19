@@ -1,0 +1,1078 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Relatório Artillery</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f7f9fc; }
+    h1, h2 { color: #333; }
+    table { border-collapse: collapse; width: 90%; margin-top: 15px; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.1);}
+    th, td { border: 1px solid #ddd; padding: 10px; vertical-align: top; }
+    th { background-color: #f0f0f0; text-align: left; }
+    td pre { margin: 0; }
+    tr:nth-child(even) { background-color: #f9f9f9; }
+    .collapsible {
+      cursor: pointer;
+      user-select: none;
+      padding: 6px;
+      background-color: #eee;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 14px;
+      width: 100%;
+      border-radius: 4px;
+    }
+    .content {
+      display: none;
+      padding: 10px;
+      background-color: #fafafa;
+      border: 1px solid #ddd;
+      border-top: none;
+      white-space: pre-wrap;
+      font-family: monospace;
+      font-size: 0.9em;
+      margin-top: -10px;
+      margin-bottom: 15px;
+      border-radius: 0 0 4px 4px;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    .charts-row {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .chart-container {
+      flex: 1 1 300px;
+      max-width: 45%;
+      background: white;
+      padding: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 6px;
+    }
+    canvas { width: 100% !important; height: 250px !important; }
+  </style>
+</head>
+<body>
+  <h1>Relatório Artillery</h1>
+
+  <h2>Resumo da Análise</h2>
+  <p><strong>Total de requisições feitas:</strong> 9000</p>
+  <p><strong>Tipos de erros detectados:</strong> Nenhum erro detectado</p>
+  <p><strong>Total de usuários virtuais criados (VUs):</strong> 3000</p>
+
+  <div class="charts-row">
+    <div class="chart-container">
+      <h3>Erros por tipo</h3>
+      <canvas id="errorChart"></canvas>
+    </div>
+    <div class="chart-container">
+      <h3>Usuários virtuais criados por tipo</h3>
+      <canvas id="vusChart"></canvas>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Métrica</th><th>Valor</th></tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td>aggregate</td>
+        <td>
+          
+      <table>
+        <thead>
+          <tr><th>Chave</th><th>Valor</th></tr>
+        </thead>
+        <tbody>
+    <tr><td>http.codes.200</td><td>9000</td></tr><tr><td>http.downloaded_bytes</td><td>603000</td></tr><tr><td>http.requests</td><td>9000</td></tr><tr><td>http.responses</td><td>9000</td></tr><tr><td>plugins.metrics-by-endpoint./comments.codes.200</td><td>3000</td></tr><tr><td>plugins.metrics-by-endpoint./posts.codes.200</td><td>3000</td></tr><tr><td>plugins.metrics-by-endpoint./users.codes.200</td><td>3000</td></tr><tr><td>vusers.completed</td><td>3000</td></tr><tr><td>vusers.created</td><td>3000</td></tr><tr><td>vusers.created_by_name.Cenário 100 usuários</td><td>3000</td></tr><tr><td>vusers.failed</td><td>0</td></tr></tbody></table>
+          <button class="collapsible">Mostrar/Esconder JSON completo</button>
+          <div class="content"><pre style="white-space: pre-wrap; font-family: monospace; font-size: 0.9em;">{
+  "counters": {
+    "vusers.created_by_name.Cenário 100 usuários": 3000,
+    "vusers.created": 3000,
+    "http.requests": 9000,
+    "http.codes.200": 9000,
+    "http.responses": 9000,
+    "http.downloaded_bytes": 603000,
+    "plugins.metrics-by-endpoint./posts.codes.200": 3000,
+    "plugins.metrics-by-endpoint./users.codes.200": 3000,
+    "plugins.metrics-by-endpoint./comments.codes.200": 3000,
+    "vusers.failed": 0,
+    "vusers.completed": 3000
+  },
+  "rates": {
+    "http.request_rate": 305
+  },
+  "firstCounterAt": 1763513426294,
+  "firstHistogramAt": 1763513426305,
+  "lastCounterAt": 1763513457551,
+  "lastHistogramAt": 1763513457551,
+  "firstMetricAt": 1763513426294,
+  "lastMetricAt": 1763513457551,
+  "period": 1763513450000,
+  "summaries": {
+    "http.response_time": {
+      "min": 0,
+      "max": 3,
+      "count": 9000,
+      "mean": 0.3,
+      "p50": 0,
+      "median": 0,
+      "p75": 1,
+      "p90": 1,
+      "p95": 1,
+      "p99": 1,
+      "p999": 1
+    },
+    "http.response_time.2xx": {
+      "min": 0,
+      "max": 3,
+      "count": 9000,
+      "mean": 0.3,
+      "p50": 0,
+      "median": 0,
+      "p75": 1,
+      "p90": 1,
+      "p95": 1,
+      "p99": 1,
+      "p999": 1
+    },
+    "plugins.metrics-by-endpoint.response_time./posts": {
+      "min": 0,
+      "max": 3,
+      "count": 3000,
+      "mean": 0.3,
+      "p50": 0,
+      "median": 0,
+      "p75": 1,
+      "p90": 1,
+      "p95": 1,
+      "p99": 1,
+      "p999": 1
+    },
+    "plugins.metrics-by-endpoint.response_time./users": {
+      "min": 0,
+      "max": 3,
+      "count": 3000,
+      "mean": 0.3,
+      "p50": 0,
+      "median": 0,
+      "p75": 1,
+      "p90": 1,
+      "p95": 1,
+      "p99": 1,
+      "p999": 1
+    },
+    "plugins.metrics-by-endpoint.response_time./comments": {
+      "min": 0,
+      "max": 2,
+      "count": 3000,
+      "mean": 0.3,
+      "p50": 0,
+      "median": 0,
+      "p75": 1,
+      "p90": 1,
+      "p95": 1,
+      "p99": 1,
+      "p999": 1
+    },
+    "vusers.session_length": {
+      "min": 2,
+      "max": 32.4,
+      "count": 3000,
+      "mean": 3,
+      "p50": 2.7,
+      "median": 2.7,
+      "p75": 3,
+      "p90": 3.5,
+      "p95": 4,
+      "p99": 14.7,
+      "p999": 17.3
+    }
+  },
+  "histograms": {
+    "http.response_time": {
+      "min": 0,
+      "max": 3,
+      "count": 9000,
+      "mean": 0.3,
+      "p50": 0,
+      "median": 0,
+      "p75": 1,
+      "p90": 1,
+      "p95": 1,
+      "p99": 1,
+      "p999": 1
+    },
+    "http.response_time.2xx": {
+      "min": 0,
+      "max": 3,
+      "count": 9000,
+      "mean": 0.3,
+      "p50": 0,
+      "median": 0,
+      "p75": 1,
+      "p90": 1,
+      "p95": 1,
+      "p99": 1,
+      "p999": 1
+    },
+    "plugins.metrics-by-endpoint.response_time./posts": {
+      "min": 0,
+      "max": 3,
+      "count": 3000,
+      "mean": 0.3,
+      "p50": 0,
+      "median": 0,
+      "p75": 1,
+      "p90": 1,
+      "p95": 1,
+      "p99": 1,
+      "p999": 1
+    },
+    "plugins.metrics-by-endpoint.response_time./users": {
+      "min": 0,
+      "max": 3,
+      "count": 3000,
+      "mean": 0.3,
+      "p50": 0,
+      "median": 0,
+      "p75": 1,
+      "p90": 1,
+      "p95": 1,
+      "p99": 1,
+      "p999": 1
+    },
+    "plugins.metrics-by-endpoint.response_time./comments": {
+      "min": 0,
+      "max": 2,
+      "count": 3000,
+      "mean": 0.3,
+      "p50": 0,
+      "median": 0,
+      "p75": 1,
+      "p90": 1,
+      "p95": 1,
+      "p99": 1,
+      "p999": 1
+    },
+    "vusers.session_length": {
+      "min": 2,
+      "max": 32.4,
+      "count": 3000,
+      "mean": 3,
+      "p50": 2.7,
+      "median": 2.7,
+      "p75": 3,
+      "p90": 3.5,
+      "p95": 4,
+      "p99": 14.7,
+      "p999": 17.3
+    }
+  }
+}</pre></div>
+        </td>
+      </tr>
+    
+      <tr>
+        <td>intermediate</td>
+        <td>
+          
+      <table>
+        <thead>
+          <tr>
+            <th>Passo</th>
+            <th>http.codes.200</th><th>http.downloaded_bytes</th><th>http.requests</th><th>http.responses</th><th>plugins.metrics-by-endpoint./comments.codes.200</th><th>plugins.metrics-by-endpoint./posts.codes.200</th><th>plugins.metrics-by-endpoint./users.codes.200</th><th>vusers.completed</th><th>vusers.created</th><th>vusers.created_by_name.Cenário 100 usuários</th><th>vusers.failed</th>
+          </tr>
+        </thead>
+        <tbody>
+    <tr><td>1</td><td>927</td><td>62109</td><td>927</td><td>927</td><td>309</td><td>309</td><td>309</td><td>309</td><td>309</td><td>309</td><td>0</td></tr><tr><td>2</td><td>3000</td><td>201000</td><td>3000</td><td>3000</td><td>1000</td><td>1000</td><td>1000</td><td>1000</td><td>1000</td><td>1000</td><td>0</td></tr><tr><td>3</td><td>3000</td><td>201000</td><td>3000</td><td>3000</td><td>1000</td><td>1000</td><td>1000</td><td>1000</td><td>1000</td><td>1000</td><td>0</td></tr><tr><td>4</td><td>2073</td><td>138891</td><td>2073</td><td>2073</td><td>691</td><td>691</td><td>691</td><td>691</td><td>691</td><td>691</td><td>0</td></tr></tbody></table>
+          <button class="collapsible">Mostrar/Esconder JSON completo</button>
+          <div class="content"><pre style="white-space: pre-wrap; font-family: monospace; font-size: 0.9em;">[
+  {
+    "counters": {
+      "vusers.created_by_name.Cenário 100 usuários": 309,
+      "vusers.created": 309,
+      "http.requests": 927,
+      "http.codes.200": 927,
+      "http.responses": 927,
+      "http.downloaded_bytes": 62109,
+      "plugins.metrics-by-endpoint./posts.codes.200": 309,
+      "plugins.metrics-by-endpoint./users.codes.200": 309,
+      "plugins.metrics-by-endpoint./comments.codes.200": 309,
+      "vusers.failed": 0,
+      "vusers.completed": 309
+    },
+    "rates": {
+      "http.request_rate": 336
+    },
+    "http.request_rate": null,
+    "firstCounterAt": 1763513426294,
+    "firstHistogramAt": 1763513426305,
+    "lastCounterAt": 1763513429998,
+    "lastHistogramAt": 1763513429998,
+    "firstMetricAt": 1763513426294,
+    "lastMetricAt": 1763513429998,
+    "period": "1763513420000",
+    "summaries": {
+      "http.response_time": {
+        "min": 0,
+        "max": 1,
+        "count": 927,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "http.response_time.2xx": {
+        "min": 0,
+        "max": 1,
+        "count": 927,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "plugins.metrics-by-endpoint.response_time./posts": {
+        "min": 0,
+        "max": 1,
+        "count": 309,
+        "mean": 0.4,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "plugins.metrics-by-endpoint.response_time./users": {
+        "min": 0,
+        "max": 1,
+        "count": 309,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "plugins.metrics-by-endpoint.response_time./comments": {
+        "min": 0,
+        "max": 1,
+        "count": 309,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "vusers.session_length": {
+        "min": 2.4,
+        "max": 32.4,
+        "count": 309,
+        "mean": 4.9,
+        "p50": 3.4,
+        "median": 3.4,
+        "p75": 4.5,
+        "p90": 14.4,
+        "p95": 15.6,
+        "p99": 17.3,
+        "p999": 17.3
+      }
+    },
+    "histograms": {
+      "http.response_time": {
+        "min": 0,
+        "max": 1,
+        "count": 927,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "http.response_time.2xx": {
+        "min": 0,
+        "max": 1,
+        "count": 927,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "plugins.metrics-by-endpoint.response_time./posts": {
+        "min": 0,
+        "max": 1,
+        "count": 309,
+        "mean": 0.4,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "plugins.metrics-by-endpoint.response_time./users": {
+        "min": 0,
+        "max": 1,
+        "count": 309,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "plugins.metrics-by-endpoint.response_time./comments": {
+        "min": 0,
+        "max": 1,
+        "count": 309,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "vusers.session_length": {
+        "min": 2.4,
+        "max": 32.4,
+        "count": 309,
+        "mean": 4.9,
+        "p50": 3.4,
+        "median": 3.4,
+        "p75": 4.5,
+        "p90": 14.4,
+        "p95": 15.6,
+        "p99": 17.3,
+        "p999": 17.3
+      }
+    }
+  },
+  {
+    "counters": {
+      "vusers.created_by_name.Cenário 100 usuários": 1000,
+      "vusers.created": 1000,
+      "http.requests": 3000,
+      "http.codes.200": 3000,
+      "http.responses": 3000,
+      "http.downloaded_bytes": 201000,
+      "plugins.metrics-by-endpoint./posts.codes.200": 1000,
+      "plugins.metrics-by-endpoint./users.codes.200": 1000,
+      "plugins.metrics-by-endpoint./comments.codes.200": 1000,
+      "vusers.failed": 0,
+      "vusers.completed": 1000
+    },
+    "rates": {
+      "http.request_rate": 300
+    },
+    "http.request_rate": null,
+    "firstCounterAt": 1763513430014,
+    "firstHistogramAt": 1763513430016,
+    "lastCounterAt": 1763513439998,
+    "lastHistogramAt": 1763513439998,
+    "firstMetricAt": 1763513430014,
+    "lastMetricAt": 1763513439998,
+    "period": "1763513430000",
+    "summaries": {
+      "http.response_time": {
+        "min": 0,
+        "max": 2,
+        "count": 3000,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "http.response_time.2xx": {
+        "min": 0,
+        "max": 2,
+        "count": 3000,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "plugins.metrics-by-endpoint.response_time./posts": {
+        "min": 0,
+        "max": 1,
+        "count": 1000,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "plugins.metrics-by-endpoint.response_time./users": {
+        "min": 0,
+        "max": 1,
+        "count": 1000,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "plugins.metrics-by-endpoint.response_time./comments": {
+        "min": 0,
+        "max": 2,
+        "count": 1000,
+        "mean": 0.2,
+        "p50": 0,
+        "median": 0,
+        "p75": 0,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "vusers.session_length": {
+        "min": 2.1,
+        "max": 5.3,
+        "count": 1000,
+        "mean": 2.8,
+        "p50": 2.7,
+        "median": 2.7,
+        "p75": 3,
+        "p90": 3.3,
+        "p95": 3.6,
+        "p99": 4.3,
+        "p999": 4.8
+      }
+    },
+    "histograms": {
+      "http.response_time": {
+        "min": 0,
+        "max": 2,
+        "count": 3000,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "http.response_time.2xx": {
+        "min": 0,
+        "max": 2,
+        "count": 3000,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "plugins.metrics-by-endpoint.response_time./posts": {
+        "min": 0,
+        "max": 1,
+        "count": 1000,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "plugins.metrics-by-endpoint.response_time./users": {
+        "min": 0,
+        "max": 1,
+        "count": 1000,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "plugins.metrics-by-endpoint.response_time./comments": {
+        "min": 0,
+        "max": 2,
+        "count": 1000,
+        "mean": 0.2,
+        "p50": 0,
+        "median": 0,
+        "p75": 0,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "vusers.session_length": {
+        "min": 2.1,
+        "max": 5.3,
+        "count": 1000,
+        "mean": 2.8,
+        "p50": 2.7,
+        "median": 2.7,
+        "p75": 3,
+        "p90": 3.3,
+        "p95": 3.6,
+        "p99": 4.3,
+        "p999": 4.8
+      }
+    }
+  },
+  {
+    "counters": {
+      "vusers.created_by_name.Cenário 100 usuários": 1000,
+      "vusers.created": 1000,
+      "http.requests": 3000,
+      "http.codes.200": 3000,
+      "http.responses": 3000,
+      "http.downloaded_bytes": 201000,
+      "plugins.metrics-by-endpoint./posts.codes.200": 1000,
+      "plugins.metrics-by-endpoint./users.codes.200": 1000,
+      "plugins.metrics-by-endpoint./comments.codes.200": 1000,
+      "vusers.failed": 0,
+      "vusers.completed": 1000
+    },
+    "rates": {
+      "http.request_rate": 300
+    },
+    "http.request_rate": null,
+    "firstCounterAt": 1763513440014,
+    "firstHistogramAt": 1763513440015,
+    "lastCounterAt": 1763513449998,
+    "lastHistogramAt": 1763513449998,
+    "firstMetricAt": 1763513440014,
+    "lastMetricAt": 1763513449998,
+    "period": "1763513440000",
+    "summaries": {
+      "http.response_time": {
+        "min": 0,
+        "max": 3,
+        "count": 3000,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "http.response_time.2xx": {
+        "min": 0,
+        "max": 3,
+        "count": 3000,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "plugins.metrics-by-endpoint.response_time./posts": {
+        "min": 0,
+        "max": 3,
+        "count": 1000,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "plugins.metrics-by-endpoint.response_time./users": {
+        "min": 0,
+        "max": 3,
+        "count": 1000,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "plugins.metrics-by-endpoint.response_time./comments": {
+        "min": 0,
+        "max": 2,
+        "count": 1000,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "vusers.session_length": {
+        "min": 2,
+        "max": 7.6,
+        "count": 1000,
+        "mean": 2.8,
+        "p50": 2.7,
+        "median": 2.7,
+        "p75": 3,
+        "p90": 3.5,
+        "p95": 3.9,
+        "p99": 4.5,
+        "p999": 6.2
+      }
+    },
+    "histograms": {
+      "http.response_time": {
+        "min": 0,
+        "max": 3,
+        "count": 3000,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "http.response_time.2xx": {
+        "min": 0,
+        "max": 3,
+        "count": 3000,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "plugins.metrics-by-endpoint.response_time./posts": {
+        "min": 0,
+        "max": 3,
+        "count": 1000,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "plugins.metrics-by-endpoint.response_time./users": {
+        "min": 0,
+        "max": 3,
+        "count": 1000,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "plugins.metrics-by-endpoint.response_time./comments": {
+        "min": 0,
+        "max": 2,
+        "count": 1000,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "vusers.session_length": {
+        "min": 2,
+        "max": 7.6,
+        "count": 1000,
+        "mean": 2.8,
+        "p50": 2.7,
+        "median": 2.7,
+        "p75": 3,
+        "p90": 3.5,
+        "p95": 3.9,
+        "p99": 4.5,
+        "p999": 6.2
+      }
+    }
+  },
+  {
+    "counters": {
+      "vusers.created_by_name.Cenário 100 usuários": 691,
+      "vusers.created": 691,
+      "http.requests": 2073,
+      "http.codes.200": 2073,
+      "http.responses": 2073,
+      "http.downloaded_bytes": 138891,
+      "plugins.metrics-by-endpoint./posts.codes.200": 691,
+      "plugins.metrics-by-endpoint./users.codes.200": 691,
+      "plugins.metrics-by-endpoint./comments.codes.200": 691,
+      "vusers.failed": 0,
+      "vusers.completed": 691
+    },
+    "rates": {
+      "http.request_rate": 300
+    },
+    "http.request_rate": null,
+    "firstCounterAt": 1763513450014,
+    "firstHistogramAt": 1763513450015,
+    "lastCounterAt": 1763513457551,
+    "lastHistogramAt": 1763513457551,
+    "firstMetricAt": 1763513450014,
+    "lastMetricAt": 1763513457551,
+    "period": "1763513450000",
+    "summaries": {
+      "http.response_time": {
+        "min": 0,
+        "max": 3,
+        "count": 2073,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "http.response_time.2xx": {
+        "min": 0,
+        "max": 3,
+        "count": 2073,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "plugins.metrics-by-endpoint.response_time./posts": {
+        "min": 0,
+        "max": 1,
+        "count": 691,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "plugins.metrics-by-endpoint.response_time./users": {
+        "min": 0,
+        "max": 3,
+        "count": 691,
+        "mean": 0.2,
+        "p50": 0,
+        "median": 0,
+        "p75": 0,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "plugins.metrics-by-endpoint.response_time./comments": {
+        "min": 0,
+        "max": 2,
+        "count": 691,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "vusers.session_length": {
+        "min": 2,
+        "max": 5.7,
+        "count": 691,
+        "mean": 2.6,
+        "p50": 2.5,
+        "median": 2.5,
+        "p75": 2.8,
+        "p90": 3,
+        "p95": 3.2,
+        "p99": 3.7,
+        "p999": 4.1
+      }
+    },
+    "histograms": {
+      "http.response_time": {
+        "min": 0,
+        "max": 3,
+        "count": 2073,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "http.response_time.2xx": {
+        "min": 0,
+        "max": 3,
+        "count": 2073,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "plugins.metrics-by-endpoint.response_time./posts": {
+        "min": 0,
+        "max": 1,
+        "count": 691,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "plugins.metrics-by-endpoint.response_time./users": {
+        "min": 0,
+        "max": 3,
+        "count": 691,
+        "mean": 0.2,
+        "p50": 0,
+        "median": 0,
+        "p75": 0,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "plugins.metrics-by-endpoint.response_time./comments": {
+        "min": 0,
+        "max": 2,
+        "count": 691,
+        "mean": 0.3,
+        "p50": 0,
+        "median": 0,
+        "p75": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "p999": 1
+      },
+      "vusers.session_length": {
+        "min": 2,
+        "max": 5.7,
+        "count": 691,
+        "mean": 2.6,
+        "p50": 2.5,
+        "median": 2.5,
+        "p75": 2.8,
+        "p90": 3,
+        "p95": 3.2,
+        "p99": 3.7,
+        "p999": 4.1
+      }
+    }
+  }
+]</pre></div>
+        </td>
+      </tr>
+    
+    </tbody>
+  </table>
+
+  <script>
+    // Toggle collapsible JSON
+    document.querySelectorAll('.collapsible').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        content.style.display = content.style.display === "block" ? "none" : "block";
+      });
+    });
+
+    // Gráfico de erros
+    const errorLabels = [];
+    const errorData = [];
+    new Chart(document.getElementById('errorChart').getContext('2d'), {
+      type: 'bar',
+      data: { labels: errorLabels, datasets: [{ label: 'Quantidade de erros', data: errorData, backgroundColor: 'rgba(255, 99, 132, 0.6)', borderColor: 'rgba(255, 99, 132, 1)', borderWidth: 1 }] },
+      options: { responsive: true, scales: { y: { beginAtZero: true } }, plugins: { legend: { display: false } } }
+    });
+
+    // Gráfico de VUs
+    const vusLabels = ["Cenário 100 usuários"];
+    const vusData = [3000];
+    new Chart(document.getElementById('vusChart').getContext('2d'), {
+      type: 'bar',
+      data: { labels: vusLabels, datasets: [{ label: 'VUs Criados', data: vusData, backgroundColor: 'rgba(54, 162, 235, 0.6)', borderColor: 'rgba(54, 162, 235, 1)', borderWidth: 1 }] },
+      options: { responsive: true, scales: { y: { beginAtZero: true } }, plugins: { legend: { display: false } } }
+    });
+  </script>
+</body>
+</html>

@@ -10,8 +10,8 @@
     "load-test": "artillery run test/load-tests/carga-20.yml",
     "load-test:50": "artillery run test/load-tests/carga-50.yml",
     "load-test:100": "artillery run test/load-tests/carga-100.yml",
-    "load-test:100:json": "artillery run test/load-tests/carga-100.yml -o report-100.json",
-    "load-test:100:html": "artillery report report-100.json -o report-100.html"
+    "load-test:100:json": "artillery run test/load-tests/carga-100.yml -o test/load-tests/report.json",
+    "load-test:100:html": "node test/load-tests/generateReport.js"
   },
   "keywords": [],
   "author": "",
