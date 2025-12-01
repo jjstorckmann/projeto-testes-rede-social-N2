@@ -16,4 +16,4 @@ scenarios:
       - get:
           url: "/users"
       - get:
-          url: "/comments" ## add agora
+          url: "/comments"

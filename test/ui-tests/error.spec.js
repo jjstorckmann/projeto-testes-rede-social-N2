@@ -17,3 +17,25 @@ test("posts.html não deve conter elemento inexistente #botaoInutil", async ({
   const elem = page.locator("#botaoInutil");
   await expect(elem).toHaveCount(0);
 });
+
+// 3. teste que verifica se todas as páginas HTML carregam sem erro 404
+test("Todas as páginas HTML devem carregar sem erro 404", async ({ page }) => {
+  const pages = [
+    "users.html",
+    "posts.html",
+    "comments.html",
+    "todos.html",
+    "albums.html",
+  ];
+
+  for (const p of pages) {
+    const response = await page.goto(`/${p}`);
+    // Verifica se o status é 200 OK
+    expect(response.status()).toBe(200);
+
+    // Verifica se não caiu no JSON de erro 404
+    // (Opcional, mas garante que não é um JSON com { error: ... })
+    const text = await response.text();
+    expect(text).not.toContain('{"error":"Rota não encontrada"}');
+  }
+});
